@@ -47,6 +47,7 @@ function runSpeechRecog () {
 
             var transcript = e.results[i][0].transcript;
             //transcript.replace("\n", "<br>");
+            
             sourceTextarea.innerHTML += transcript;
             translate();
         }
