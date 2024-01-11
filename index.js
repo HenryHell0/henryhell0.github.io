@@ -31,11 +31,11 @@ function toggleSpeech () {
     active = !active;
     if (active == true) {
         runSpeechRecog()
-        toggleButton.src = "assets/pause.webp"
+        toggleButton.src = "assets/pause.svg"
     }
     if (active == false) {
         recognition.stop()
-        toggleButton.src = "assets/record.webp"
+        toggleButton.src = "assets/record.svg"
     }
     
 }
