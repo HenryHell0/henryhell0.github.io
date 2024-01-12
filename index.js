@@ -7,6 +7,8 @@ recognition.interimResults = false;
 //recognition.maxAlternatives = 1;
 var sourceTextarea = document.getElementById("sourceText")
 var resultTextarea = document.getElementById("resultText")
+var sourceGroup = document.getElementById("sourceGroup")
+var resultGroup = document.getElementById("resultGroup")
 
 
 function translate(){
@@ -22,7 +24,7 @@ function translate(){
     //console.log(url);
 
     $.getJSON(url, function(data) {
-        $('textarea#resultText').val(data[0][0][0]);
+        resultTextarea.innerHTML = data[0][0][0];
     });
 
 }

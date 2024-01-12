@@ -1,0 +1,50 @@
+:root {
+    --background: #333333;
+    --phrases: #636363;
+    --outline: #BBBBBB;
+    --text: #e6e6e6;
+}
+
+body {
+    background-color: var(--background);
+    font-family: monospace;
+}
+
+
+
+.phrasebox {
+    border-color: var(--outline);
+    color: var(--text);
+    background-color: var(--phrases);
+    outline: none;
+}
+
+
+#translations {
+    display:table;
+    border-spacing: 5px;
+    width: 100%;
+}
+
+#phrase {
+    display:table-row;
+}
+#phrase > * {
+    display:table-cell;
+    padding:10px;
+}
+
+#sourceText {
+    text-align: right;
+    width: 25px;
+    max-width: 25px;
+}
+#resultText {
+    max-width:75px;
+    width:75px;
+}
+
+
+
+
+

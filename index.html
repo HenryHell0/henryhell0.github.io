@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link href="style.css" rel="stylesheet" type="text/css">
     </head>
     
     <body>
-    <textarea id="sourceText"></textarea>
-    <textarea id="resultText"></textarea>
-    <br>
-    <p onclick="toggleSpeech()">
-        <img id="toggleButton"  src="assets/record.svg" width="200px" height="200px"> </img>
-    <p>
-        
-     </body>
-     <script src="index.js">
-    </script>
+    
+        <div id="translations">
+            <div id="phrase">
+                <div id="sourceText" class="phrasebox"  contenteditable="true"></div>
+                <div id="resultText" class="phrasebox"  contenteditable="true"></div>
+            </div>
+        </div>
+
+        <div onclick="toggleSpeech()">
+            <img id="toggleButton"  src="assets/record.svg" width="200px" height="200px"> </img>
+        </div>
+
+    </body>
+
+    <div hidden="true" id="phraseConstructors">
+    </div>
+
+    <script src="index.js"></script>
 </html>
