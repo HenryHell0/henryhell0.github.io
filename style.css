@@ -8,13 +8,17 @@
 body {
     background-color: var(--background);
     font-family: monospace;
+    color: var(--text);
 }
 
-
+#toggleButton {
+    border-radius: 4%;
+    padding: 1%;
+    background-color: var(--text);
+}
 
 .phrasebox {
     border-color: var(--outline);
-    color: var(--text);
     background-color: var(--phrases);
     outline: none;
 }
@@ -32,6 +36,7 @@ body {
 #phrase > * {
     display:table-cell;
     padding:10px;
+    border-radius: 5px;
 }
 
 #sourceText {

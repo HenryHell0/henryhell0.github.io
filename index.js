@@ -5,28 +5,40 @@ recognition.continuous = true;
 //recognition.lang = 'en-US';
 recognition.interimResults = false;
 //recognition.maxAlternatives = 1;
-var sourceTextarea = document.getElementById("sourceText")
-var resultTextarea = document.getElementById("resultText")
-var sourceGroup = document.getElementById("sourceGroup")
-var resultGroup = document.getElementById("resultGroup")
+var translations = document.getElementById("translations")
+var transcript;
+const basePhrase = document.getElementById("constructors").firstElementChild
 
+// gets kids
+    // translations.children
+// clears
+    // translations.innerHTML = "";
+// adds stuff
+    // translations.append(sourceTextarea)
 
-function translate(){
+function translate(text){
     //if (!sourceTextarea.val()) {
     //    return;
     //}
-    var sourceText = sourceTextarea.innerHTML;
+    var sourceText = text;
     var sourceLang = 'en';
     var targetLang = 'es';
     console.log(sourceText);
 
     var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl="+ sourceLang + "&tl=" + targetLang + "&dt=t&q=" + encodeURI(sourceText);
-    //console.log(url);
 
-    $.getJSON(url, function(data) {
-        resultTextarea.innerHTML = data[0][0][0];
-    });
 
+    $.getJSON(url, addPhrase);
+}
+
+function addPhrase(data) {
+    let translated = data[0][0][0]
+    
+    let workingPhrase = basePhrase.cloneNode(true);
+    workingPhrase.firstElementChild.innerHTML = transcript
+    workingPhrase.lastElementChild.innerHTML = translated
+    
+    translations.appendChild(workingPhrase)
 }
 
 function toggleSpeech () {
@@ -44,15 +56,11 @@ function toggleSpeech () {
 
 function runSpeechRecog () {
     recognition.onresult = (e) => {
-        
-        for(var i=e.resultIndex; i<e.results.length; i++){
+        transcript = e.results[e.results.length-1][0].transcript;
+        //transcript.replace("\n", "<br>");
 
-            var transcript = e.results[i][0].transcript;
-            //transcript.replace("\n", "<br>");
-            
-            sourceTextarea.innerHTML += transcript;
-            translate();
-        }
+        translate(transcript)
+
     }
     /*
     recognition.onspeechend = () => {

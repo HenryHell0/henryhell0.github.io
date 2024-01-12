@@ -6,22 +6,25 @@
     </head>
     
     <body>
-    
+        <h2>Results will appear here:</h2>
         <div id="translations">
-            <div id="phrase">
-                <div id="sourceText" class="phrasebox"  contenteditable="true"></div>
-                <div id="resultText" class="phrasebox"  contenteditable="true"></div>
-            </div>
         </div>
 
-        <div onclick="toggleSpeech()">
-            <img id="toggleButton"  src="assets/record.svg" width="200px" height="200px"> </img>
+        <h3>Start/Stop Recording:</h3>
+        <div onclick="toggleSpeech()" style="display: flexbox;">
+            <img id="toggleButton"  src="assets/record.svg" width="65px" height="65px"> </img>
         </div>
 
     </body>
 
-    <div hidden="true" id="phraseConstructors">
+    <div hidden="true" id="constructors">
+        <div id="phrase">
+            <div id="sourceText" class="phrasebox"  contenteditable="true"></div>
+            <div id="resultText" class="phrasebox"  contenteditable="false"></div>
+        </div>
     </div>
+
+    
 
     <script src="index.js"></script>
 </html>
